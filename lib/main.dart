@@ -48,9 +48,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: const Center(
-        child: Column(
-          children: [],
-        ),
+        child: Text('Hello World'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => print('clicked'),
+        child: const Icon(Icons.mouse),
       ),
     );
   }
