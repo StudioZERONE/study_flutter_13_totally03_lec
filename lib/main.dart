@@ -47,13 +47,55 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      body: const Center(
-        child: Text('Hello World'),
+      body: ListView(
+        children: [
+          postContainer(
+            title: 'test2',
+          ),
+          postContainer(
+            title: 'test3',
+          ),
+          postContainer(
+            title: 'test4',
+          ),
+          postContainer(
+            title: 'test5',
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => print('clicked'),
         child: const Icon(Icons.mouse),
       ),
+    );
+  }
+}
+
+class postContainer extends StatelessWidget {
+  String title;
+  postContainer({
+    super.key,
+    required this.title,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(10),
+          child: Text(
+            title,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ),
+        Container(
+          width: MediaQuery.of(context).size.width,
+          height: 200,
+          color: Colors.amber,
+        ),
+      ],
     );
   }
 }
