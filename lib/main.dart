@@ -29,25 +29,54 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final postList = [
+    {
+      "number": "1",
+      "color": Colors.red,
+    },
+    {
+      "number": "2",
+      "color": Colors.orange,
+    },
+    {
+      "number": "3",
+      "color": Colors.yellow,
+    },
+    {
+      "number": "4",
+      "color": Colors.green,
+    },
+    {
+      "number": "5",
+      "color": Colors.blue,
+    },
+    {
+      "number": "6",
+      "color": Colors.indigo,
+    },
+    {
+      "number": "7",
+      "color": Colors.purple,
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Test Title')),
-      body: GridView(
+      body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 15,
           mainAxisSpacing: 10,
         ),
-        children: [
-          postConatiner(number: "1", colorData: Colors.red),
-          postConatiner(number: "2", colorData: Colors.orange),
-          postConatiner(number: "3", colorData: Colors.yellow),
-          postConatiner(number: "4", colorData: Colors.green),
-          postConatiner(number: "5", colorData: Colors.blue),
-          postConatiner(number: "6", colorData: Colors.indigo),
-          postConatiner(number: "7", colorData: Colors.purple),
-        ],
+        itemCount: postList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return postConatiner(
+            number: postList[index]["number"] as String,
+            colorData: postList[index]["color"] as Color,
+          );
+        },
       ),
     );
   }
