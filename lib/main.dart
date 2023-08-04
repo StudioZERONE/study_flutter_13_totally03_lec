@@ -29,6 +29,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final postList = [
+    {
+      "title": "Sample Title 1",
+      "color": Colors.red,
+    },
+    {
+      "title": "Sample Title 2",
+      "color": Colors.orange,
+    },
+    {
+      "title": "Sample Title 3",
+      "color": Colors.yellow,
+    },
+    {
+      "title": "Sample Title 4",
+      "color": Colors.green,
+    },
+    {
+      "title": "Sample Title 5",
+      "color": Colors.blue,
+    },
+    {
+      "title": "Sample Title 6",
+      "color": Colors.indigo,
+    },
+    {
+      "title": "Sample Title 7",
+      "color": Colors.purple,
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,39 +78,46 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      body: ListView(
-        children: [
-          postContainer(
-            title: 'test2',
-          ),
-          postContainer(
-            title: 'test3',
-          ),
-          postContainer(
-            title: 'test4',
-          ),
-          postContainer(
-            title: 'test5',
-          ),
-        ],
+      body: ListView.builder(
+        itemCount: postList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return postContainer(
+            title: postList[index]["title"] as String,
+            colorData: postList[index]["color"] as Color,
+          );
+        },
       ),
+      // body: ListView(
+      //   children: [
+      //     postContainer(
+      //       title: 'test1',
+      //       colorData: Colors.red,
+      //     ),
+      //     postContainer(
+      //       title: 'test2',
+      //       colorData: Colors.orange,
+      //     ),
+      //     postContainer(
+      //       title: 'test3',
+      //       colorData: Colors.yellow,
+      //     ),
+      //     postContainer(
+      //       title: 'test4',
+      //       colorData: Colors.green,
+      //     ),
+      //   ],
+      // ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => print('clicked'),
         child: const Icon(Icons.mouse),
       ),
     );
   }
-}
 
-class postContainer extends StatelessWidget {
-  String title;
-  postContainer({
-    super.key,
-    required this.title,
-  });
-
-  @override
-  Widget build(BuildContext context) {
+  Widget postContainer({
+    String title = '',
+    Color colorData = Colors.blue,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -93,7 +131,7 @@ class postContainer extends StatelessWidget {
         Container(
           width: MediaQuery.of(context).size.width,
           height: 200,
-          color: Colors.amber,
+          color: colorData,
         ),
       ],
     );
