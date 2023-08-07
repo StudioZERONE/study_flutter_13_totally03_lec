@@ -64,23 +64,32 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Test Title')),
-      body: SingleChildScrollView(
-        child: Column(
+      body: Container(
+        child: Stack(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 300,
-              color: Colors.green,
+            Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                width: 100,
+                height: 100,
+                color: Colors.amber,
+              ),
             ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 300,
-              color: Colors.red,
+            Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                width: 100,
+                height: 100,
+                color: Colors.blue,
+              ),
             ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 300,
-              color: Colors.yellow,
+            Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                width: 100,
+                height: 100,
+                color: Colors.green,
+              ),
             ),
           ],
         ),
