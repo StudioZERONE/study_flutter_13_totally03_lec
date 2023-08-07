@@ -29,67 +29,61 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final postList = [
-    {
-      "number": "1",
-      "color": Colors.red,
-    },
-    {
-      "number": "2",
-      "color": Colors.orange,
-    },
-    {
-      "number": "3",
-      "color": Colors.yellow,
-    },
-    {
-      "number": "4",
-      "color": Colors.green,
-    },
-    {
-      "number": "5",
-      "color": Colors.blue,
-    },
-    {
-      "number": "6",
-      "color": Colors.indigo,
-    },
-    {
-      "number": "7",
-      "color": Colors.purple,
-    },
-  ];
+  // final postList = [
+  //   {
+  //     "number": "1",
+  //     "color": Colors.red,
+  //   },
+  //   {
+  //     "number": "2",
+  //     "color": Colors.orange,
+  //   },
+  //   {
+  //     "number": "3",
+  //     "color": Colors.yellow,
+  //   },
+  //   {
+  //     "number": "4",
+  //     "color": Colors.green,
+  //   },
+  //   {
+  //     "number": "5",
+  //     "color": Colors.blue,
+  //   },
+  //   {
+  //     "number": "6",
+  //     "color": Colors.indigo,
+  //   },
+  //   {
+  //     "number": "7",
+  //     "color": Colors.purple,
+  //   },
+  // ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Test Title')),
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 15,
-          mainAxisSpacing: 10,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 300,
+              color: Colors.green,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 300,
+              color: Colors.red,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 300,
+              color: Colors.yellow,
+            ),
+          ],
         ),
-        itemCount: postList.length,
-        itemBuilder: (BuildContext context, int index) {
-          return postConatiner(
-            number: postList[index]["number"] as String,
-            colorData: postList[index]["color"] as Color,
-          );
-        },
-      ),
-    );
-  }
-
-  Widget postConatiner({
-    String number = "0",
-    Color colorData = Colors.amber,
-  }) {
-    return Container(
-      height: 200,
-      color: colorData,
-      child: Center(
-        child: Text("Box $number"),
       ),
     );
   }
