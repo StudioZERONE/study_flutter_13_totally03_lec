@@ -65,33 +65,33 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Test Title')),
       body: Container(
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.amber,
-              ),
-            ),
-            Align(
-              alignment: Alignment.topCenter,
-              child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.blue,
-              ),
-            ),
-            Align(
-              alignment: Alignment.topRight,
-              child: Container(
-                width: 100,
-                height: 100,
-                color: Colors.green,
-              ),
-            ),
-          ],
+        child: Center(
+          child: TextButton(
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text("dialog title"),
+                    content: Container(
+                      child: const Text("dialog content"),
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: const Text('Yes'),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: const Text('close'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            child: const Text("button"),
+          ),
         ),
       ),
     );
