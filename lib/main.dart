@@ -62,36 +62,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    String imageUrl =
+        'https://postfiles.pstatic.net/MjAyMjA5MjhfODcg/MDAxNjY0MzM3NDQ0MTkw.drmFrLwEVf46aF9dcSSlyNIWurXwiAPWNwJ9ShwgIl8g.uYkwyGnFTCkFwdaQ-R_WCPxE2HHqj8784OyIRLhpLB8g.JPEG.smotherguy/FdB-NnsacAI84mB.jpg?type=w966';
     return Scaffold(
       appBar: AppBar(title: const Text('Test Title')),
-      body: Container(
-        child: Center(
-          child: TextButton(
-            onPressed: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    title: const Text("dialog title"),
-                    content: Container(
-                      child: const Text("dialog content"),
-                    ),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        child: const Text('Yes'),
-                      ),
-                      TextButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        child: const Text('close'),
-                      ),
-                    ],
-                  );
-                },
-              );
-            },
-            child: const Text("button"),
-          ),
+      body: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Image(
+          image: NetworkImage(imageUrl),
+          fit: BoxFit.contain,
         ),
       ),
     );
