@@ -62,16 +62,56 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    String imageUrl =
-        'https://postfiles.pstatic.net/MjAyMjA5MjhfODcg/MDAxNjY0MzM3NDQ0MTkw.drmFrLwEVf46aF9dcSSlyNIWurXwiAPWNwJ9ShwgIl8g.uYkwyGnFTCkFwdaQ-R_WCPxE2HHqj8784OyIRLhpLB8g.JPEG.smotherguy/FdB-NnsacAI84mB.jpg?type=w966';
     return Scaffold(
       appBar: AppBar(title: const Text('Test Title')),
-      body: SizedBox(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Image(
-          image: NetworkImage(imageUrl),
-          fit: BoxFit.contain,
+      body: Container(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width / 2,
+                  height: 150,
+                  color: Colors.blue,
+                ),
+                Container(
+                  width: 150,
+                  height: 150,
+                  color: Colors.red,
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Flexible(
+                  flex: 1,
+                  fit: FlexFit.tight,
+                  child: Container(
+                    height: 150,
+                    color: Colors.green,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    height: 150,
+                    color: Colors.orange,
+                  ),
+                ),
+                Flexible(
+                  flex: 2,
+                  child: Container(
+                    height: 150,
+                    color: Colors.purple,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
