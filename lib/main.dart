@@ -88,7 +88,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   fit: FlexFit.tight,
                   child: Container(
                     height: 150,
-                    color: Colors.green,
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Colors.pink,
+                          Colors.blue,
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
                   ),
                 ),
               ],
