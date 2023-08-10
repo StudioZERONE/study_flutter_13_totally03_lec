@@ -29,37 +29,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // final postList = [
-  //   {
-  //     "number": "1",
-  //     "color": Colors.red,
-  //   },
-  //   {
-  //     "number": "2",
-  //     "color": Colors.orange,
-  //   },
-  //   {
-  //     "number": "3",
-  //     "color": Colors.yellow,
-  //   },
-  //   {
-  //     "number": "4",
-  //     "color": Colors.green,
-  //   },
-  //   {
-  //     "number": "5",
-  //     "color": Colors.blue,
-  //   },
-  //   {
-  //     "number": "6",
-  //     "color": Colors.indigo,
-  //   },
-  //   {
-  //     "number": "7",
-  //     "color": Colors.purple,
-  //   },
-  // ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,58 +36,35 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         child: Column(
           children: [
-            Row(
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width / 2,
-                  height: 150,
-                  color: Colors.blue,
+            Center(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.amber,
+                  textStyle: const TextStyle(
+                    fontSize: 20,
+                  ),
                 ),
-                Container(
-                  width: 150,
-                  height: 150,
-                  color: Colors.red,
-                ),
-              ],
+                onPressed: () {
+                  print("ElevatedButton clicked!");
+                },
+                child: const Text("ElevatedButton"),
+              ),
             ),
-            Row(
-              children: [
-                Flexible(
-                  flex: 1,
-                  fit: FlexFit.tight,
-                  child: Container(
-                    height: 150,
-                    decoration: const BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Colors.pink,
-                          Colors.blue,
-                        ],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
+            Center(
+              child: TextButton(
+                onPressed: () {
+                  print("TextButton clicked!");
+                },
+                child: const Text("TextButton"),
+              ),
             ),
-            Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    height: 150,
-                    color: Colors.orange,
-                  ),
-                ),
-                Flexible(
-                  flex: 2,
-                  child: Container(
-                    height: 150,
-                    color: Colors.purple,
-                  ),
-                ),
-              ],
+            Center(
+              child: OutlinedButton(
+                onPressed: () {
+                  print("OutlinedButton clicked!");
+                },
+                child: const Text("OutlinedButton"),
+              ),
             ),
           ],
         ),
